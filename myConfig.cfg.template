@@ -1,0 +1,28 @@
+[OCI_Identity_Provider]
+tenancy_name =
+tenancy_ocid =
+compartment_ocid =
+iddomain =
+idname =
+idurl =
+sp_metadata_url =
+groups =
+par_request =
+client_id =
+client_secret =
+
+[OCI_Service_Provider]
+tenancy_name =
+tenancy_ocid =
+compartment_ocid =
+iddomain =
+idname =
+idurl =
+idp_metadata_url =
+client_id =
+client_secret =
+bucket_namespace = 
+bucket_ocid = 
+bucket_name = 
+par_request =
+
