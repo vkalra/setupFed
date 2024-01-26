@@ -5,11 +5,11 @@ compartment_ocid =
 iddomain =
 idname =
 idurl =
-sp_metadata_url =
 groups =
 par_request =
 client_id =
 client_secret =
+bucket_name = 
 
 [OCI_Service_Provider]
 tenancy_name =
@@ -18,11 +18,11 @@ compartment_ocid =
 iddomain =
 idname =
 idurl =
+idp_type = 
 idp_metadata_url =
-client_id =
-client_secret =
+client_id = TBD
+client_secret = TBD
 bucket_namespace = 
-bucket_ocid = 
 bucket_name = 
-par_request =
+par_request = TBD
 
