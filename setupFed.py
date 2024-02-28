@@ -68,9 +68,10 @@ DESCRIPTION = "This application was created by the setupFed.py script on " + dat
 SP = 'OCI_Service_Provider'
 OCI_IDP = 'OCI_Identity_Provider'
 
-# Read the config for IdP and SP
+# Read the config for IdP/SP
+CONFIG_FILE = 'myConfig.cfg'
 myConfig = configparser.ConfigParser()
-myConfig.read('myConfig.cfg')
+myConfig.read(CONFIG_FILE)
 spConfig = configparser.ConfigParser()
 
 # Setup argument parser and get profile
@@ -88,9 +89,13 @@ args = parser.parse_args()
 
 
 def sendRequest(url):
-    # TODO: Exception handling for request
-     response  = requests.get(url,auth=auth)
-     return response
+    try:
+        response  = requests.get(url,auth=auth)
+        response.raise_for_status()
+    except requests.exceptions.RequestException as e:
+        print("An error occurred:", e)
+
+    return response
 
 def getMetadata(url, provider):
      print("Getting Metadata for " + provider + "...")
@@ -102,9 +107,12 @@ def getMetadata(url, provider):
      # TODO Add exception handling for request and write
      
      response  = sendRequest(url)
-     with open(provider + "-metadata.xml", 'wb') as fd:
-      fd.write(response.content)
-      fd.close()
+     try:
+        with open(provider + "-metadata.xml", 'wb') as fd:
+            fd.write(response.content)
+        fd.close()
+     except (IOError, OSError):
+        print("Error writing to file")
 
 def getMetadataFromPar(parRequest):
     # Get the SP metadata file and the Client id and secret from PAR Request
@@ -120,9 +128,13 @@ def getMetadataFromPar(parRequest):
         print("file: ", item['name'])
         file = sendRequest(parRequest + item['name'])
     
-        with open(item['name'], 'wb') as fd:
-            fd.write(file.content)
-        fd.close()    
+        try:
+            with open(item['name'], 'wb') as fd:
+                fd.write(file.content)
+            fd.close()  
+        except (IOError, OSError):
+            print("Error writing to file")
+  
     return None
 
 def createMetadataBucket(compartment, type):
@@ -177,8 +189,12 @@ def createMetadataBucket(compartment, type):
         #myConfig[type]['parID'] = parResponse.data.id
 
         # Save the configuration
-        with open('myConfig.cfg', 'w') as configfile:
-            myConfig.write(configfile) 
+        try:
+            with open(CONFIG_FILE, 'w') as configfile:
+                myConfig.write(configfile) 
+        except (IOError, OSError):
+            print("Error writing to file")
+        
         
     except oci.exceptions.ServiceError as e:
         print(e)
@@ -199,10 +215,10 @@ def createMetadataBucket(compartment, type):
     except oci.exceptions.ServiceError as e:
             print(e)
 
-    #TODO Store date for the idp provisoiing app abd client id and secret
+    #TODO Store data for the idp provisoiing app abd client id and secret
     # Currently passing the entire myCOnfig.cfg to bucket
     try:
-        obj = open('myConfig.cfg', "r")
+        obj = open(CONFIG_FILE, "r")
 
         objectResponse = object_storage_client.put_object(
             namespace_name=myConfig[type]['bucket_namespace'],
@@ -216,7 +232,6 @@ def createMetadataBucket(compartment, type):
     except oci.exceptions.ServiceError as e:
         print(e)
     
-
 def createSAMLApp(endpoint):
     print("Creating SAML Applicaiont for OCI Identity Provider...")
    
@@ -280,7 +295,7 @@ def createSAMLApp(endpoint):
             #print(create_grant_response)
     except oci.exceptions.ServiceError as err:
         if err.status == 409:
-            print("HTTP Code 409: Duplicate Application")
+            print("Status Code 409 (doplicate) : Application already exists.  Continuing....")
 
 def createConfidentialApp(endpoint):
     # Create Confidential App and save the CLiennt ID and Secret
@@ -351,8 +366,11 @@ def createConfidentialApp(endpoint):
         myConfig[SP]['client_secret'] = create_app_response.data.client_secret
 
         # Save the configuration
-        with open('myConfig.cfg', 'w') as configfile:
-            myConfig.write(configfile) 
+        try:
+            with open(CONFIG_FILE, 'w') as configfile:
+                myConfig.write(configfile) 
+        except (IOError, OSError):
+            print("Error writing to file")
     
     except oci.exceptions.ServiceError as err:
         if err.status == 409:
@@ -361,7 +379,6 @@ def createConfidentialApp(endpoint):
             # So as to run again (re-entrant)
         else:
             print(err)
-
 
 def createGenericSCIMApp(endpoint):
     print("Creating SCIM Application for provisioing users to Serivr Provider...")
@@ -573,9 +590,9 @@ def getInputs(provider):
 
     if provider == SP:
         # Reset
-        myConfig[SP]['client_id']='TBD1'
-        myConfig[SP]['client_secret']='TBD2'
-        myConfig[SP]['par_request']= "TBD3"
+        myConfig[SP]['client_id']='client_id_TBD'
+        myConfig[SP]['client_secret']='client_secret_TBD'
+        myConfig[SP]['par_request']= "par_request_TBD"
         print("Answer the following questions for your OCI Service Provider:\n")
     else:
         if provider == OCI_IDP:
@@ -663,9 +680,12 @@ def getInputs(provider):
         print(config + ": " + myConfig[provider][config] + "\n")
 
     if (userInput(QCONT, None, None)) == 'Y':
-        # Save configuration file inputs
-        with open('myConfig.cfg', 'w') as configfile:
-            myConfig.write(configfile) 
+        # Save the configuration
+        try:
+            with open(CONFIG_FILE, 'w') as configfile:
+                myConfig.write(configfile) 
+        except (IOError, OSError):
+            print("Error writing to file")
         return True
     return False
     
