@@ -15,3 +15,7 @@ Artifacts created for IdP
   2. SAML Application - Configured to accept request from SP
 
 In order for the IdP to acccess the data from the SP, the script will generate a pre-authenticated request (PAR) with the -sp flag. THis PAR is required when running the script with the -idp flag for access to SP metadata.  It us up to the SP admin to send the PAR in a timely mannner.
+
+After cloing the repo in your environment,  you need to copy or move the myCOnfig.cfg.template to myConfig.cfg.
+
+Then run the command 'python setupFed.py -sp'.  The SP artifacts must be created first since a PAR is required for the IdP configuration.
