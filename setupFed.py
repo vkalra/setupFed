@@ -6,7 +6,7 @@ This should be one script with 2 steps:
         provide IdP's URL
         Note: SAML metadata is published at /fed/v1/metadata on both sides
         Create Identity Provider using IdPs metadata
-        Create and activate App for SCIM provisioning - Create Confidential App and store the clioent ID and secret
+        Create and activate App for SCIM provisioning - Create Confidential App and store the client ID and secret
         provide or create bucket
             Create file in Object Store with the above
             Create a PAR for that
@@ -37,18 +37,6 @@ requests_log.setLevel(logging.DEBUG)
 requests_log.propagate = True
 http_client.HTTPConnection.debuglevel = 1
 
-# Get the DEFAULT OCI profile
-ociConfig = oci.config.from_file()
-identity = oci.identity.IdentityClient(ociConfig)
-
-# Get the Signer for raw requests from .oci/config
-auth = Signer(
-    tenancy=ociConfig['tenancy'],
-    user=ociConfig['user'],
-    fingerprint=ociConfig['fingerprint'],
-    private_key_file_location=ociConfig['key_file'],
-    pass_phrase=ociConfig['pass_phrase']
-)
 # Public URIs for OCI providers
 OCI_METADATA_URI = "/fed/v1/metadata/"
 ASSERTION_CONSUMER_URL = "/fed/v1/sp/sso"
@@ -76,7 +64,7 @@ try:
       myConfig.read_file(f)
 except FileNotFoundError as ex:
     print(CONFIG_FILE + " file not found.")
-    exit(0)
+    raise SystemExit
 myConfig.read(CONFIG_FILE)
 spConfig = configparser.ConfigParser()
 
@@ -84,22 +72,142 @@ spConfig = configparser.ConfigParser()
 parser = argparse.ArgumentParser(prog='setupFed',
                                  description='This script will configure a SAML Partner (IdP/SP). Use the -sp and -idp flags if there both are in the same tenancy.',
                                  epilog='')
-
 parser.add_argument('-idp',
                     help="Setup up a SAML Identity Provider.",
                     action='store', choices=['oci','azure','okta'])
 parser.add_argument('-sp',
-                    help="Setup up a SAML Service Provider on OCI->Identity Domain",
+                    help="Setup a SAML Service Provider on OCI->Identity Domain",
                     action='store_true')
+parser.add_argument('-ca', default='default',
+                    help="Select the OCI config authenticate type (delegated, instance principal, secure token or default)",
+                    action='store', choices=['dt','ip','st','default'] )
+parser.add_argument('-cp', default="", dest='config_profile',
+                    help="Select the OCI config profile name if none is specified use default",
+                    action='store')
+parser.add_argument('-cf', default="", dest='file_location',
+                    help="Select the OCI config file location if none is specified use default location.",
+                    action='store')
 args = parser.parse_args()
 
+# Setup OCI Config
+# Credit to MAP Compliance Checker script
+# Github ....
 
+# if instance principals authentications
+if args.ca == 'ip':
+    try:
+        signer = oci.auth.signers.InstancePrincipalsSecurityTokenSigner()
+        ociConfig = {'region': signer.region, 'tenancy': signer.tenancy_id}
+    
+    except Exception:
+            print("Error obtaining instance principals certificate, aborting")
+            raise SystemExit
+
+# -----------------------------
+# Delegation Token
+# -----------------------------
+elif args.ca == 'dt':
+    try:
+        # check if env variables OCI_CONFIG_FILE, OCI_CONFIG_PROFILE exist and use them
+        env_config_file = os.environ.get('OCI_CONFIG_FILE')
+        env_config_section = os.environ.get('OCI_CONFIG_PROFILE')
+
+        # check if file exist
+        if env_config_file is None or env_config_section is None:
+            print(
+                "*** OCI_CONFIG_FILE and OCI_CONFIG_PROFILE env variables not found, abort. ***")
+            print("")
+            raise SystemExit
+
+        ociConfig = oci.config.from_file(env_config_file, env_config_section)
+        delegation_token_location = ociConfig["delegation_token_file"]
+
+        with open(delegation_token_location, 'r') as delegation_token_file:
+            delegation_token = delegation_token_file.read().strip()
+            # get signer from delegation token
+            signer = oci.auth.signers.InstancePrincipalsDelegationTokenSigner(
+                delegation_token=delegation_token)
+
+    except KeyError:
+        print("* Key Error obtaining delegation_token_file")
+        raise SystemExit
+
+    except Exception:
+        raise
+# ---------------------------------------------------------------------------
+# Security Token - Credit to Dave Knot (https://github.com/dns-prefetch)
+# ---------------------------------------------------------------------------
+elif args.ca == 'st':
+    try:
+        # Read the token file from the security_token_file parameter of the .config file
+        ociConfig = oci.config.from_file(
+            oci.config.DEFAULT_LOCATION,
+            (args.config_profile if args.config_profile else oci.config.DEFAULT_PROFILE)
+            )
+
+        token_file = ociConfig['security_token_file']
+        token = None
+        with open(token_file, 'r') as f:
+            token = f.read()
+
+        # Read the private key specified by the .config file.
+        private_key = oci.signer.load_private_key_from_file(config['key_file'])
+
+        signer = oci.auth.signers.SecurityTokenSigner(token, private_key)
+
+    except KeyError:
+        print("* Key Error obtaining security_token_file")
+        raise SystemExit
+
+    except Exception:
+        raise
+
+# -----------------------------
+ # config file authentication
+ # -----------------------------
+else:
+    try:
+        ociConfig = oci.config.from_file(
+            args.file_location if args.file_location else oci.config.DEFAULT_LOCATION,
+            (args.config_profile if args.config_profile else oci.config.DEFAULT_PROFILE)
+            )
+        signer = oci.signer.Signer(
+            tenancy=ociConfig["tenancy"],
+            user=ociConfig["user"],
+            fingerprint=ociConfig["fingerprint"],
+            private_key_file_location=ociConfig.get("key_file"),
+            pass_phrase=oci.config.get_config_value_or_default(
+                ociConfig, "pass_phrase"),
+            private_key_content=ociConfig.get("key_content")
+            )
+        
+    except Exception:
+        print(
+            f'** OCI Config was not found here : {oci.config.DEFAULT_LOCATION} or env varibles missing, aborting **')
+        raise SystemExit
+
+# Get the DEFAULT OCI profile
+#TODO In CloudShell the delegated token is the default
+# Support for Delegated token and others
+ociConfig = oci.config.from_file( )
+
+"""
+# Get the Signer for raw requests from .oci/config
+auth = Signer(
+    tenancy=ociConfig['tenancy'],
+    user=ociConfig['user'],
+    fingerprint=ociConfig['fingerprint'],
+    private_key_file_location=ociConfig['key_file'],
+    pass_phrase=ociConfig['pass_phrase']
+)
+"""
 def sendRequest(url):
     try:
-        response  = requests.get(url,auth=auth)
+        response  = requests.get(url,auth=signer)
         response.raise_for_status()
     except requests.exceptions.RequestException as e:
         print("An error occurred:", e)
+        raise SystemExit
     return response
 
 def getMetadata(url, provider):
@@ -113,14 +221,16 @@ def getMetadata(url, provider):
      
      response  = sendRequest(url)
      try:
-        with open(provider + "-metadata.xml", 'wb') as fd:
+        file_name = provider + "-metadata.xml"
+        with open(file_name, 'wb') as fd:
             fd.write(response.content)
         fd.close()
      except (IOError, OSError):
-        print("Error writing to file")
-        exit(0)
+        print("Error writing to file: " + file_name)
+        raise SystemExit
 
 def getMetadataFromPar(parRequest):
+    print("Getting Metadata from PAR " + parRequest + "...")
     # Get the SP metadata file and the Client id and secret from PAR Request
     # Extract the bucket name from the PAR
     bucketName = parRequest.split("/b/")[1].split("/o/")[0]
@@ -129,7 +239,7 @@ def getMetadataFromPar(parRequest):
     print("files in PAR = ", files.json())
 
     #Get files from Bucket
-    #TODO chek if the par is valid ..the next line will fail if it is
+    #TODO check if the par is valid ..the next line will fail if it is
     for item in files.json()['objects']:
         print("file: ", item['name'])
         file = sendRequest(parRequest + item['name'])
@@ -140,7 +250,7 @@ def getMetadataFromPar(parRequest):
             fd.close()  
         except (IOError, OSError):
             print("Error writing to file")
-            exit(0)
+            raise SystemExit
   
     return None
 
@@ -204,7 +314,7 @@ def createMetadataBucket(compartment, type):
             exit(0)
     except oci.exceptions.ServiceError as err:
         print("Error Creating PAR: " + err)
-        exit(0)
+        raise SystemExit
 
     # Read SP metdata file
     try:
@@ -221,7 +331,7 @@ def createMetadataBucket(compartment, type):
         #print(objectResponse.data)
     except oci.exceptions.ServiceError as err:
             print("Error Creating Object: " + err)
-            exit(0)
+            raise SystemExit
 
     #TODO Store data for the idp provisoiing app abd client id and secret
     # Currently passing the entire myCOnfig.cfg to bucket
@@ -239,7 +349,7 @@ def createMetadataBucket(compartment, type):
         #print(objectResponse.data)
     except oci.exceptions.ServiceError as err:
         print("Error Creating Object: " + err)
-        exit(0)
+        raise SystemExit
     
 def createSAMLApp(endpoint):
     print("Creating SAML Applicaiont for OCI Identity Provider...")
@@ -307,10 +417,10 @@ def createSAMLApp(endpoint):
             print("Status Code 409 (doplicate) : Application already exists.  Continuing....")
         else:
             print("Error Creating SAML APP: " + err)
-            exit(0)
+            raise SystemExit
 
 def createConfidentialApp(endpoint):
-    # Create Confidential App and save the CLiennt ID and Secret
+    print("Creating Confidential Application and store the client ID and secret...")
     try:
         domainClient = oci.identity_domains.IdentityDomainsClient(ociConfig, endpoint)
 
@@ -382,14 +492,14 @@ def createConfidentialApp(endpoint):
                 myConfig.write(configfile) 
         except (IOError, OSError):
             print("Error writing to file " + CONFIG_FILE)
-            exit(0)
+            raise SystemExit
 
     except oci.exceptions.ServiceError as err:
         if err.status == 409:
             print("Status Code 409 (doplicate) : Application already exists.  Continuing....")
         else:
             print("Error Creating Confidential APP: " + err)
-            exit(0)
+            raise SystemExit
             #TODO get the client ID and secret and save it
             # So as to run again (re-entrant)
 
@@ -462,6 +572,7 @@ def createGenericSCIMApp(endpoint):
     
         # TODO - The app provisioing is not ebabled.  
         # Check to see if this can be done via SDK
+        # Use patch_app and pass JSON data to complete creation of app.
         #  if not display the values to fill in for provisoiing
         print("To complete the setup please Enable Provisioning for this applicaion and provide the following:")
         print("Host Name: " + spConfig[SP]['idurl'].split(":443/")[0] )
@@ -479,7 +590,7 @@ def createGenericSCIMApp(endpoint):
             print("Status Code 409 (doplicate) : Application already exists.  Continuing....")
         else:
             print("Error Creating Generic SCOM APP: " + err)
-            exit(0)
+            raise SystemExit
 
 def createIdentityProvider(endpoint):
     print("Configuring an Identity Provider within your Service Provider...")
@@ -517,7 +628,7 @@ def createIdentityProvider(endpoint):
             print("Status Code 409 (doplicate) : Provider already exists.  Continuing....")
         else:
             print("Error Creating Identity Provider: " + err)
-            exit(0)
+            raise SystemExit
 
 def setupIDPDomain():
     print("Seting up the Identity Provider Domain...")
@@ -621,6 +732,7 @@ def getInputs(provider):
     userInput(Q3,'compartment_ocid',provider)
 
     # Get list of identity domains and select
+    identity = oci.identity.IdentityClient(ociConfig)
     domains = identity.list_domains(myConfig[provider]['compartment_ocid']).data
     
     # List the domains and allow the Admin to select
@@ -701,6 +813,7 @@ def getInputs(provider):
                 myConfig.write(configfile) 
         except (IOError, OSError):
             print("Error writing to file")
+            raise SystemExit
         return True
     return False
     
