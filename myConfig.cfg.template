@@ -10,6 +10,7 @@ par_request =
 client_id =
 client_secret =
 bucket_name = 
+app_id = 
 
 [OCI_Service_Provider]
 tenancy_name =

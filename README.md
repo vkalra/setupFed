@@ -19,3 +19,10 @@ In order for the IdP to acccess the data from the SP, the script will generate a
 After cloing the repo in your environment,  you need to copy or move the myCOnfig.cfg.template to myConfig.cfg.
 
 Then run the command 'python setupFed.py -sp'.  The SP artifacts must be created first since a PAR is required for the IdP configuration.
+
+Running the script in CloudShell, please be aware that by default the OCI Config file is stored in /etc/.oci/config and the delegated tokem is used.   For this reason the script has three additional flags: 
+-cf : Location of the config file. If not specified will use default location.
+-Ca : The authentication type (delegated tokem, instance principal, secure token and default)
+-cp : The profile name. If not specified will use the [DEFAULT] profile name.
+
+Use the approprate config flags when needed based on your environment.
