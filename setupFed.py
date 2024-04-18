@@ -44,6 +44,7 @@ REST_API_ENDPOINT = "/admin/v1"
 
 # OCI App Roles
 USER_ADMIN_ROLE = "User Administrator"
+DEFAULT_SCOPE = "urn:opc:idm:__myscopes__"
 
 # App Names for OCI Apps
 CONFIDENTIAL_APP_NAME = "Confidential App For IDP "
@@ -56,7 +57,14 @@ DESCRIPTION = "This application was created by the setupFed.py script on " + dat
 SP = 'OCI_Service_Provider'
 OCI_IDP = 'OCI_Identity_Provider'
 
-# Read the config for IdP/SP
+# Initialize the SP data file;
+#  this file will be sent to
+#  the IdP
+SP_DATA_FILE = 'spData.cfg'
+spData = configparser.ConfigParser()
+spData[SP] = {}
+
+# Read the script config file.
 CONFIG_FILE = 'myConfig.cfg'
 myConfig = configparser.ConfigParser()
 try:
@@ -66,7 +74,7 @@ except FileNotFoundError as ex:
     print(CONFIG_FILE + " file not found.")
     raise SystemExit
 myConfig.read(CONFIG_FILE)
-spConfig = configparser.ConfigParser()
+
 
 # Setup argument parser and get profile
 parser = argparse.ArgumentParser(prog='setupFed',
@@ -186,21 +194,26 @@ else:
         raise SystemExit
 
 
-def save_config_file():
+def save_config_file(config, configFile):
         try:
-            with open(CONFIG_FILE, 'w') as configfile:
-                myConfig.write(configfile) 
+            with open(configFile, 'w') as cf:
+                config.write(cf)
         except (IOError, OSError):
             print("Error writing to file")
             raise SystemExit
 
-def send_request(url):
+def send_request(url, with_signer=True):
     try:
-        response  = requests.get(url,auth=signer)
+        if with_signer:
+            response  = requests.get(url,auth=signer)
+        else:
+            response  = requests.get(url)
         response.raise_for_status()
-    except requests.exceptions.RequestException as e:
-        print("An error occurred:", e)
-        raise SystemExit
+    except requests.exceptions.RequestException as err:
+        if err.response.status_code == 401:
+            raise
+        else:
+            print("An error occurred:", err)
     return response
 
 def get_metadata(url, provider):
@@ -212,15 +225,26 @@ def get_metadata(url, provider):
      # TODO: Look for SKD call to get the metadata
      # TODO Add exception handling for request and write
      
-     response  = send_request(url)
      try:
+        response  = send_request(url,False)
         file_name = provider + "-metadata.xml"
         with open(file_name, 'wb') as fd:
             fd.write(response.content)
         fd.close()
+     except requests.exceptions.RequestException as err:
+        if err.response.status_code == 401:
+            print(err)
+            if provider == OCI_IDP:
+                print("Possible Cause: Please verify that the Identity Provider Domain has seleted the Access Signing Certificate checkbox in Settings->Doamain Settings ")
+            raise SystemExit
      except (IOError, OSError):
         print("Error writing to file: " + file_name)
         raise SystemExit
+     
+         
+    #TODO trap a 401 error from send reqest and note that
+    # that it could be because of the checkbox in the domain for 
+    # access certificate.
 
 def get_metadata_from_par(parRequest):
     print("Getting Metadata from PAR " + parRequest + "...")
@@ -244,52 +268,45 @@ def get_metadata_from_par(parRequest):
         except (IOError, OSError):
             print("Error writing to file")
             raise SystemExit
-  
-    return None
 
 def create_metadata_bucket(compartment, type):
     print("Creating/Updating Bucket and Pre-Authenicated Request (PAR)...")
-    if myConfig.has_option(type,'bucket_name') != True:
-        BUCKET_NAME = "SP_BUCKET"
-        myConfig[type]['bucket_name'] = BUCKET_NAME
-    else:
-        BUCKET_NAME = myConfig[type]['bucket_name']
         
     # Initialize service client with default config file
     object_storage_client = oci.object_storage.ObjectStorageClient(ociConfig)
 
-    if myConfig.has_option(type,'bucket_ocid') != True:
-        # Send the request to service, some parameters are not required, see API
-        # doc for more info
-        try:
-            bucketResponse = object_storage_client.create_bucket(
-            namespace_name=myConfig[type]['bucket_namespace'],
-            create_bucket_details=oci.object_storage.models.CreateBucketDetails(
-            name=BUCKET_NAME,
-            compartment_id=compartment,  
-            public_access_type="ObjectReadWithoutList",
-            storage_tier="Standard",
-            object_events_enabled=False,
-            versioning="Enabled",
-            auto_tiering="Disabled"))
-        except oci.exceptions.ServiceError as err:
-            #print(e.status)
-            if err.status == 409:
-                print("Status Code 409 (doplicate) : Bucket already exists.  Continuing....")
-            else:
-                print("Error Creatinbg Bucket: " + err)
-                exit(0)
+    try:
+        bucketResponse = object_storage_client.create_bucket(
+        namespace_name=myConfig[type]['bucket_namespace'],
+        create_bucket_details=oci.object_storage.models.CreateBucketDetails(
+        name=myConfig[type]['bucket_name'],
+        compartment_id=compartment,  
+        public_access_type="ObjectReadWithoutList",
+        storage_tier="Standard",
+        object_events_enabled=False,
+        versioning="Enabled",
+        auto_tiering="Disabled"))
+    except oci.exceptions.ServiceError as err:
+        #print(e.status)
+        if err.status == 409:
+            print("Status Code 409 (doplicate) : Bucket already exists.")
+            #Ask if bucket can be updated otherwise exit
+            if (user_input("Shall I update the bucket (Y/n)", None, None)) != 'Y':
+                print("Run the script again with new bucket name.  Exiting...")
+                raise SystemExit
+        else:
+            print("Error Creatinbg Bucket: " + err)
+            exit(0)
         
-        #print(bucketResponse.data)
-    #print(metadataResponse.data)
+    #print(bucketResponse.data)
 
     # Create PAR
     try:
         parResponse = object_storage_client.create_preauthenticated_request(
             namespace_name=myConfig[type]['bucket_namespace'],
-            bucket_name=BUCKET_NAME,
+            bucket_name= myConfig[type]['bucket_name'],
             create_preauthenticated_request_details=oci.object_storage.models.CreatePreauthenticatedRequestDetails(
-            name=BUCKET_NAME + "PAR",
+            name=myConfig[type]['bucket_name'] + "PAR",
             access_type="AnyObjectRead",
             time_expires=datetime.now() + timedelta(days=1),
             bucket_listing_action="ListObjects"))
@@ -298,8 +315,8 @@ def create_metadata_bucket(compartment, type):
         myConfig[type]['par_request'] = parResponse.data.full_path
         print ("The PAR reqest is: " + parResponse.data.full_path)
         print ("Send the PAR request to the IdP administrator to access SP data.")
+        save_config_file(myConfig, CONFIG_FILE)
 
-        save_config_file()
     except oci.exceptions.ServiceError as err:
         print("Error Creating PAR: " + err)
         raise SystemExit
@@ -310,8 +327,8 @@ def create_metadata_bucket(compartment, type):
 
         objectResponse = object_storage_client.put_object(
             namespace_name=myConfig[type]['bucket_namespace'],
-            bucket_name=BUCKET_NAME,
-            object_name=obj.name + ".for_idp",
+            bucket_name= myConfig[type]['bucket_name'],
+            object_name=obj.name,
             put_object_body = obj.read())
 
         obj.close()
@@ -321,15 +338,24 @@ def create_metadata_bucket(compartment, type):
             print("Error Creating Object: " + err)
             raise SystemExit
 
-    #TODO Store data for the idp provisoiing app abd client id and secret
-    # Currently passing the entire myCOnfig.cfg to bucket
+    # Send the required data to onject storage.
+    # This will be consumed by the IdP (SCIM App)
+    spData[SP]['host'] = myConfig[SP]['idurl'].split(":443/")[0]
+    spData[SP]['baseuri'] = REST_API_ENDPOINT
+    spData[SP]['client_id'] = myConfig[SP]['client_id']
+    spData[SP]['client_secret'] = myConfig[SP]['client_secret']
+    spData[SP]['scope'] = DEFAULT_SCOPE
+    spData[SP]['asertion_consumer_url'] = myConfig[SP]['idurl'] + ASSERTION_CONSUMER_URL
+
+    save_config_file(spData,SP_DATA_FILE)
+
     try:
-        obj = open(CONFIG_FILE, "r")
+        obj = open(SP_DATA_FILE, "r")
 
         objectResponse = object_storage_client.put_object(
             namespace_name=myConfig[type]['bucket_namespace'],
-            bucket_name=BUCKET_NAME,
-            object_name=obj.name + ".for_idp",
+            bucket_name=myConfig[type]['bucket_name'],
+            object_name=obj.name,
          put_object_body = obj.read())
 
         obj.close()
@@ -474,17 +500,17 @@ def create_confidential_app(endpoint):
         myConfig[SP]['client_id'] = create_app_response.data.name
         myConfig[SP]['client_secret'] = create_app_response.data.client_secret
 
-        save_config_file()
+        save_config_file(myConfig, CONFIG_FILE)
 
     except oci.exceptions.ServiceError as err:
         if err.status == 409:
             print("Status Code 409 (doplicate) : Application already exists.  Continuing....")
+            #TODO get the client ID and secret and save it
+            # So as to run again (re-entrant)
         else:
             print("Error Creating Confidential APP: " + err)
             raise SystemExit
-            #TODO get the client ID and secret and save it
-            # So as to run again (re-entrant)
-
+            
 def create_generic_scim_app(endpoint):
     print("Creating SCIM Application for provisioing users to Serivr Provider...")
    
@@ -517,22 +543,9 @@ def create_generic_scim_app(endpoint):
                 description=DESCRIPTION,
                 urn_ietf_params_scim_schemas_oracle_idcs_extension_managedapp_app=oci.identity_domains.models.AppExtensionManagedappApp(
                     account_form_visible = True,
-                    admin_consent_granted= True,
                     enable_sync=True,
-                    #bundle_configuration_properties=[
-                        #oci.identity_domains.models.AppBundleConfigurationProperties(
-                            #confidential=False,
-                            #display_name= "Host Name",
-                            #help_message= "The host name of your application's SCIM REST API endpoints.",
-                            #icf_type="String",
-                            #name="host",
-                            #order=1,
-                            #required=True,
-                            #value= [
-                            #    "idcs-1fa3024a5c544b89a3b0b623819c7837.identity.oraclecloud.com"
-                            #]
-                        #)
-                    #]
+                    admin_consent_granted= True,
+                    connected= True
                 ),
                 based_on_template=oci.identity_domains.models.AppBasedOnTemplate(
                     value=template_id,
@@ -542,7 +555,7 @@ def create_generic_scim_app(endpoint):
         #Get the app id for the patch app call
         #print(create_app_response.data.id)
         myConfig[OCI_IDP]['app_id'] = create_app_response.data.id
-        save_config_file()
+        save_config_file(myConfig, CONFIG_FILE)
 
     except oci.exceptions.ServiceError as err:
         if err.status == 409:
@@ -555,9 +568,6 @@ def create_generic_scim_app(endpoint):
             print("Error updating Generic SCOM Application.")
             print(err)
             raise SystemExit
-
-    acu = spConfig[SP]['idurl'] + ASSERTION_CONSUMER_URL
-    host = spConfig[SP]['idurl'].split(":443/")[0]
        
     print("Updating SCIM Application for provisioing users to Serivr Provider...")
     try:
@@ -574,27 +584,28 @@ def create_generic_scim_app(endpoint):
                     oci.identity_domains.models.Operations(
                         op="REPLACE",
                         path="urn:ietf:params:scim:schemas:oracle:idcs:extension:managedapp:App:bundleConfigurationProperties[name eq \"host\"].value",
-                        value=[host]),
+                        value=[spData[SP]['host']]),
                     oci.identity_domains.models.Operations(
                     op="REPLACE",
                         path="urn:ietf:params:scim:schemas:oracle:idcs:extension:managedapp:App:bundleConfigurationProperties[name eq \"baseuri\"].value",
-                        value=[REST_API_ENDPOINT]),
+                        value=[spData[SP]['baseuri']]),
                     oci.identity_domains.models.Operations(
                         op="REPLACE",
                         path="urn:ietf:params:scim:schemas:oracle:idcs:extension:managedapp:App:bundleConfigurationProperties[name eq \"clientid\"].value",
-                        value=[spConfig[SP]['client_id']]),
+                        value=[spData[SP]['client_id']]),
                     oci.identity_domains.models.Operations(
                         op="REPLACE",
                         path="urn:ietf:params:scim:schemas:oracle:idcs:extension:managedapp:App:bundleConfigurationProperties[name eq \"clientsecret\"].value",
-                        value=[spConfig[SP]['client_secret']]),
+                        value=[spData[SP]['client_secret']]),
                     oci.identity_domains.models.Operations(
                         op="REPLACE",
                         path="urn:ietf:params:scim:schemas:oracle:idcs:extension:managedapp:App:bundleConfigurationProperties[name eq \"scope\"].value",
-                        value=["urn:opc:idm:__myscopes__"]),
+                        value=[spData[SP]['scope']]),
                     oci.identity_domains.models.Operations(
                         op="REPLACE",
                         path="urn:ietf:params:scim:schemas:oracle:idcs:extension:managedapp:App:bundleConfigurationProperties[name eq \"authenticationServerUrl\"].value",
-                        value=[acu])]))
+                        value=[spData[SP]['asertion_consumer_url']]
+                        )]))
             #if_match="EXAMPLE-ifMatch-Value",
             #opc_retry_token="EXAMPLE-opcRetryToken-Value")
     
@@ -610,6 +621,7 @@ def create_generic_scim_app(endpoint):
             raise SystemExit
 
         #  if not display the values to fill in for provisoiing
+        """
         print("To complete the setup please Enable Provisioning for this applicaion and provide the following:")
         print("Host Name: " + spConfig[SP]['idurl'].split(":443/")[0] )
         print("Base URI: " + REST_API_ENDPOINT)
@@ -617,13 +629,11 @@ def create_generic_scim_app(endpoint):
         print("Client  Secret: " + spConfig[SP]['client_secret'])
         print("Scope: " +  "urn:opc:idm:__myscopes__")
         print("AuthenticatoinServer URL: " + spConfig[SP]['idurl'] + ASSERTION_CONSUMER_URL)
-        
-    print("     Enable provisioning in the application via the console.  All values will be populated.")
+        """
+    print("     To complete the setup schedule to sync users to Service Provider (in the console)")
     print("     The default attribute mappings should be fine, if not make changes as needed.")
-        
-    
-
-def create_identity_provider(endpoint):
+          
+def create_identity_provider(endpoint, idpMetadata):
     print("Configuring an Identity Provider within your Service Provider...")
 
     # RAW DATA SAMPLE
@@ -633,9 +643,8 @@ def create_identity_provider(endpoint):
     try:
         domainClient = oci.identity_domains.IdentityDomainsClient(ociConfig, endpoint)
         
-        # Read metadate for IdP in same tenancy
-        #if myConfig['DEFAULT']['idp_sp_in_same_tenancy'] == 'Y': 
-        mdf = open(OCI_IDP + '-metadata.xml', "r")
+        # Read metadate for IdP
+        mdf = open(idpMetadata, "r")
        
         # Send the request to service, some parameters are not required, see API
         # doc for more info
@@ -665,25 +674,27 @@ def setup_idp_domain():
     print("Seting up the Identity Provider Domain...")
     
     # Get the metadata for IDP domain
-    # TODO this URL will come from Bucket/Flat file
     get_metadata_from_par(myConfig[OCI_IDP]['par_request'])
 
     # Create a new configParser for data from SP and pass down
-    spConfig.read('myConfig.cfg.for_idp')
+    spData.read(SP_DATA_FILE)
 
     create_generic_scim_app(myConfig[OCI_IDP]['idurl'])
     create_saml_app(myConfig[OCI_IDP]['idurl'])
 
-    return None
 
 def setup_sp_domain():
     print("Seting up the Service Provider Domain...")
 
     # Get the metadata for IDP domain
     if myConfig[SP]['idp_type'.upper()] == 'OCI':
-        get_metadata(myConfig[SP]['idp_metadata_url'],OCI_IDP)
-        # Create the Identit Provider and Confidential App
-        create_identity_provider(myConfig[SP]['idurl'])
+        #Check the idp_method, if URL then get metadatta
+        if myConfig[SP]['idp_method'.upper()] == 'URL':
+            get_metadata(myConfig[SP]['idp_metadata'],OCI_IDP)
+            create_identity_provider(myConfig[SP]['idurl'],OCI_IDP + '-metadata.xml')
+        else:
+            create_identity_provider(myConfig[SP]['idurl'],myConfig[SP]['idp_metadata'])
+
         create_confidential_app(myConfig[SP]['idurl'])
     else:
         print('Identity Provider type not supported')
@@ -691,16 +702,8 @@ def setup_sp_domain():
     # Save the SP metadata to a file
     get_metadata(myConfig[SP]['idurl'] + OCI_METADATA_URI,SP)
 
-    if myConfig.has_option(SP,'bucket_name') != True:
-        create_metadata_bucket(myConfig[SP]['compartment_ocid'], SP)
-    else:
-        print("The SAML data will be store in bucket: " + myConfig[SP]['bucket_name'])
-        option = input("Do you wish to update data in this location(Y/n)? ")
-        if option == 'Y':
-            create_metadata_bucket(myConfig[SP]['compartment_ocid'], SP)
-        else:
-            print("No bucket with metadata was updated,  You must namually send the data ro your IdO.")
-
+    create_metadata_bucket(myConfig[SP]['compartment_ocid'], SP)
+    
 def user_input(question, config, provider, type='string'):
     """
     """
@@ -735,7 +738,9 @@ def get_inputs(provider):
     Q4 = "Select the Identity Domain for your " + provider + ":"
     Q5 = "Enter the URL for the Service Provider Metadata:"
     Q6 = "Enter the IdP type[OCI, Azure, Okta]:"
-    Q61 = "Enter the URL for the Identity Provider Metadata:"
+    Q61 = "Enter the IdP metadata format [File or URL]:"
+    Q611 = "Enter the URL for the Identity Provider Metadata:"
+    Q612 = "Enter the file name for the Identity Provider Metadata:"
     Q7 = "Select group(s) for access for the " + provider + "(Entter '0' to exit):"
     Q8 = "Enter the Bucket Namespce(This is usually the tenancy name):"
     Q9 = "Enter the Bucket Name (no spaces):" 
@@ -760,6 +765,9 @@ def get_inputs(provider):
     user_input(Q3,'compartment_ocid',provider)
 
     # Get list of identity domains and select
+    # TODO - Trap 401 errros, this is usuall because
+    #  it could not find valid admin in oci config.
+    #  Need to add some of the -0f flags suring starup
     identity = oci.identity.IdentityClient(ociConfig)
     domains = identity.list_domains(myConfig[provider]['compartment_ocid']).data
     
@@ -784,7 +792,14 @@ def get_inputs(provider):
 
     if provider == SP:
         user_input(Q6,'idp_type',SP)
-        user_input(Q61,'idp_metadata_url',SP)
+        while True:
+            method = user_input(Q61,'idp_method', SP)
+            if method.lower() == "file":
+                user_input(Q612,'idp_metadata',SP)
+                break
+            if method.lower() == "url":
+                user_input(Q611,'idp_metadata',SP)
+                break
         user_input(Q8,'bucket_namespace',SP)
         user_input(Q9,'bucket_name',SP)
         
@@ -835,7 +850,7 @@ def get_inputs(provider):
         print(config + ": " + myConfig[provider][config] + "\n")
 
     if (user_input(QCONT, None, None)) == 'Y':
-        save_config_file()
+        save_config_file(myConfig, CONFIG_FILE)
         return True
     return False
     
