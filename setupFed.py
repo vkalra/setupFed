@@ -159,7 +159,7 @@ elif args.ca == 'st':
             token = f.read()
 
         # Read the private key specified by the .config file.
-        private_key = oci.signer.load_private_key_from_file(config['key_file'])
+        private_key = oci.signer.load_private_key_from_file(ociConfig['key_file'])
 
         signer = oci.auth.signers.SecurityTokenSigner(token, private_key)
 
@@ -391,7 +391,7 @@ def create_saml_app(endpoint):
                 urn_ietf_params_scim_schemas_oracle_idcs_extension_saml_service_provider_app =oci.identity_domains.models.AppExtensionSamlServiceProviderApp(
                     metadata = mdf.read(),
                     #TODO get the ACU from the metadata. or enter in mnaully
-                    assertion_consumer_url=spConfig[SP]['idurl'] + ASSERTION_CONSUMER_URL
+                    assertion_consumer_url=spData[SP]['idurl'] + ASSERTION_CONSUMER_URL
                     # Need to enter the assertion consumnerr URL
                 ),
                 based_on_template=oci.identity_domains.models.AppBasedOnTemplate(
