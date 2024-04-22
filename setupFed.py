@@ -471,8 +471,9 @@ def create_confidential_app(endpoint):
                     #last_modified="EXAMPLE-lastModified-Value",
                     well_known_id="CustomWebAppTemplateId")))
     
-            # Get the id of the newly created app
-            #print("The APP ID is: " + create_app_response.data.id)
+        # Get the id of the newly created app
+        #print("The APP ID is: " + create_app_response.data.id)
+        myConfig[SP]['app_id'] = create_app_response.data.id
             
         create_grant_response = domainClient.create_grant(
         grant=oci.identity_domains.models.Grant(
@@ -504,9 +505,21 @@ def create_confidential_app(endpoint):
 
     except oci.exceptions.ServiceError as err:
         if err.status == 409:
+            print(err)
             print("Status Code 409 (doplicate) : Application already exists.  Continuing....")
-            #TODO get the client ID and secret and save it
+            # Edge Case: Check if app_id exists otherwise exit
+            if myConfig.get(SP,'app_id') == '': 
+                print ("app_id is missing. Try deleting the Confidential App and run the script again.")
+                raise SystemExit 
+            # Get the client ID and secret and save it
             # So as to run again (re-entrant)
+            get_app_response = domainClient.get_app(
+                app_id=myConfig[SP]['app_id'])
+            #print(get_app_response.data)
+            # Store the clientID and Secret
+            myConfig[SP]['client_id'] = get_app_response.data.name
+            myConfig[SP]['client_secret'] = get_app_response.data.client_secret
+            save_config_file(myConfig, CONFIG_FILE)
         else:
             print("Error Creating Confidential APP: " + err)
             raise SystemExit
@@ -681,7 +694,6 @@ def setup_idp_domain():
 
     create_generic_scim_app(myConfig[OCI_IDP]['idurl'])
     create_saml_app(myConfig[OCI_IDP]['idurl'])
-
 
 def setup_sp_domain():
     print("Seting up the Service Provider Domain...")
