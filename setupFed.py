@@ -390,9 +390,7 @@ def create_saml_app(endpoint):
                 description=DESCRIPTION,
                 urn_ietf_params_scim_schemas_oracle_idcs_extension_saml_service_provider_app =oci.identity_domains.models.AppExtensionSamlServiceProviderApp(
                     metadata = mdf.read(),
-                    #TODO get the ACU from the metadata. or enter in mnaully
-                    assertion_consumer_url=spData[SP]['idurl'] + ASSERTION_CONSUMER_URL
-                    # Need to enter the assertion consumnerr URL
+                    assertion_consumer_url=spData[SP]['asertion_consumer_url']
                 ),
                 based_on_template=oci.identity_domains.models.AppBasedOnTemplate(
                     value="CustomSAMLAppTemplateId",
