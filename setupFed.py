@@ -39,7 +39,7 @@ http_client.HTTPConnection.debuglevel = 1
 
 # Public URIs for OCI providers
 OCI_METADATA_URI = "/fed/v1/metadata/"
-ASSERTION_CONSUMER_URL = "/fed/v1/sp/sso"
+ASSERTION_CONSUMER_URL = "/oauth2/v1/token"
 REST_API_ENDPOINT = "/admin/v1"
 
 # OCI App Roles
@@ -340,7 +340,7 @@ def create_metadata_bucket(compartment, type):
 
     # Send the required data to onject storage.
     # This will be consumed by the IdP (SCIM App)
-    spData[SP]['host'] = myConfig[SP]['idurl'].split(":443/")[0]
+    spData[SP]['host'] = myConfig[SP]['idurl'].split(":443")[0].split("https://")[1]
     spData[SP]['baseuri'] = REST_API_ENDPOINT
     spData[SP]['client_id'] = myConfig[SP]['client_id']
     spData[SP]['client_secret'] = myConfig[SP]['client_secret']
