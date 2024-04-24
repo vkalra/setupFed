@@ -5,9 +5,9 @@ Currently only OCI IAM is supported for the Service Provider (SP) and Identity P
 The script has two flags '-sp' and '-idp {oci,azure,okta}'.  It will create artifacts for both SP and IdP.  You can run the script in a single tenancy with two differnt domains representing the SP and IdP or more likely you will run the script in two seperate tenancies.
 
 Artifact created for SP
-  1. Identity Provider (using provided IdPs metadata URL)
+  1. Identity Provider (using provided IdPs metadata URL or File)
   2. Confidential Application used with IdP's Generic SCIM Application
-  3. Bucket/Object Store - To store the SP data for the IdP script
+  3. Bucket/Object Store - To store the SP data for the IdP script (step 2)
   4. A pre-authentiated request (PAR) to be used when configuring the IdP.
 
 Artifacts created for IdP
@@ -22,7 +22,7 @@ Then run the command 'python setupFed.py -sp'.  The SP artifacts must be created
 
 Running the script in CloudShell, please be aware that by default the OCI Config file is stored in /etc/.oci/config and the delegated tokem is used.   For this reason the script has three additional flags: 
 -cf : Location of the config file. If not specified will use default location.
--Ca : The authentication type (delegated tokem, instance principal, secure token and default)
+-ca : The authentication type (delegated tokem, instance principal, secure token and default)
 -cp : The profile name. If not specified will use the [DEFAULT] profile name.
 
 Use the approprate config flags when needed based on your environment.
