@@ -1,0 +1,3069 @@
+macOS-13.5.2-x86_64-i386-64bit
+System name: Darwin
+System release : 22.6.0
+System version: Darwin Kernel Version 22.6.0: Wed Jul  5 22:21:56 PDT 2023; root:xnu-8796.141.3~6/RELEASE_X86_64
+
+env OCI_PYTHON_SDK_NO_SERVICE_IMPORTS is set
+Not using Expect header...
+send: b'POST /admin/v1/Grants/.search HTTP/1.1\r\nuser-agent: Oracle-PythonSDK/2.115.0 (python 3.12.0; x86_64-Darwin) Oracle-PythonCLI/3.36.0\r\naccept-encoding: gzip, deflate\r\naccept: application/json, application/scim+json\r\nconnection: keep-alive\r\ncontent-type: application/json\r\nopc-retry-token: VSjcRIYQaL5sRagKkZ6oJoz2pbYYJW\r\nopc-client-retries: true\r\nopc-client-info: Oracle-PythonSDK/2.115.0\r\nopc-request-id: 61EFE7B33F4F4174A77AA574E6B2011C\r\nContent-Length: 68\r\ndate: Wed, 22 Nov 2023 03:52:40 GMT\r\nhost: idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443\r\nx-content-sha256: NxtORHMZN5Q4xMwe54JtdHmOO2JjS9Q3jxiU4aIHnFs=\r\nauthorization: Signature algorithm="rsa-sha256",headers="date (request-target) host content-length content-type x-content-sha256",keyId="ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq/ocid1.user.oc1..aaaaaaaax32irplnsa64sgnvn7yuitjfyb5ws5ib4dbkvc5sozjkjhfm6d4q/09:12:f3:88:4d:2a:68:52:82:d4:49:89:46:45:c6:7f",signature="HH+3crI+EGj49JoedHFtO3woQZn1mloH0XlKMkldIsvpEKOBRKfpN8grRnD0R5KPMuZ4tJsoZt9r/oFwE3CtqmfN4MhrNTYpSkaqazKBN0SSla+9XKevTS4BPH4HJE5BIb26I2sK3JQysr6CBomBsphBxK/0yYILZF1VSHm0SlnPAbMknLT5iHBKkf2vB7V0UiAG3eRvTCV97wpuDE8J2eEGo4egIQwqzjGYFoTbd0wFHkbthVK9jSkDIcaNSi45NV9lMNUSKp9N5dSkA54Cx42RJ5zplk3vSdfwlN48xIY92eiGLNyoSc4Ecykhw4joPxm4c2QT7r3gJoXz6p94iA==",version="1"\r\n\r\n{"schemas": ["urn:ietf:params:scim:api:messages:2.0:SearchRequest"]}'
+reply: 'HTTP/1.1 200 OK\r\n'
+header: Date: Wed, 22 Nov 2023 03:52:41 GMT
+header: Content-Type: application/json;charset=utf-8
+header: Transfer-Encoding: chunked
+header: Connection: keep-alive
+header: x-oracle-dms-rid: 0:1
+header: x-oracle-dms-ecid: 61EFE7B33F4F4174A77AA574E6B2011C/PWX9j0_0n10000000
+header: opc-request-id: 61EFE7B33F4F4174A77AA574E6B2011C/PWX9j0_0n10000000
+header: opc-total-items: 74
+header: opc-next-page: NTE=
+header: x-envoy-upstream-service-time: 88
+header: via: 1.1 net-idcs-config
+header: pragma: no-cache
+header: cache-control: no-cache, no-store, must-revalidate
+header: expires: Sat, 01 Jan 2000 00:00:00 GMT
+header: x-xss-protection: 1; mode=block
+header: x-content-type-options: nosniff
+header: x-frame-options: deny
+header: vary: origin
+header: x-envoy-decorator-operation: webtier.idcs-data-plane.svc.cluster.local:8990/*
+header: Strict-Transport-Security: max-age=31536000; includeSubDomains always
+{
+  "data": {
+    "items-per-page": 50,
+    "resources": [
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "ad35f9280fdb4e88aaa7f2aeebd70ded"
+        },
+        "grant-mechanism": "SERVICE_MANAGER_TO_USER",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "id": "a92ab62b318a486faaaaf519bc03e5b5",
+        "idcs-created-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-modified-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/UnAuthenticated",
+          "type": "App",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-08-27T19:54:15.234Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/a92ab62b318a486faaaaf519bc03e5b5",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjiawmhle6yq43liwkd3j47fx4b45p4wdilbg6t75rlvq7nq",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "1867c9da6299497382337f5ea4089d54"
+        },
+        "grant-mechanism": "ADMINISTRATOR_TO_USER",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "id": "487e1b68e5d4444d9b9ef5d25f36e432",
+        "idcs-created-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "idcs-last-modified-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/UnAuthenticated",
+          "type": "User",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2021-09-13T22:14:43.461Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/487e1b68e5d4444d9b9ef5d25f36e432",
+          "resource-type": "Grant",
+          "version": "16c94c054f0740d49c78a23423a33a23"
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjia6auszhzpy4nq33onkcxhwa7nwhuu3pp2i3knhowgx47a",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/03312e7b0f2b43608914ea1434cc189e",
+          "value": "03312e7b0f2b43608914ea1434cc189e"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": null,
+        "grant-mechanism": "SYNC_TO_USER",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "id": "a5bfa46d16fa41c690a6efc5624d64c9",
+        "idcs-created-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "idcs-last-modified-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/UnAuthenticated",
+          "type": "User",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-10-01T19:47:12.788Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/a5bfa46d16fa41c690a6efc5624d64c9",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjia7jjmuj4qvvuepsdxxpks6ybzjvm435eu4nvnfqry4kmq",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/89b2861a87984ecf82fa5c3ce44b6679",
+          "value": "89b2861a87984ecf82fa5c3ce44b6679"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "f436c57a55524bcd8dacca3956d19ae8"
+        },
+        "grant-mechanism": "SERVICE_MANAGER_TO_USER",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/6940f2c4f17c49469d465bb49505ceb3",
+          "type": "User",
+          "value": "6940f2c4f17c49469d465bb49505ceb3"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "id": "2efb4c58509e47bcac543004bfe97905",
+        "idcs-created-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-modified-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/UnAuthenticated",
+          "type": "App",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-12-17T19:14:28.742Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/2efb4c58509e47bcac543004bfe97905",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjia4uyh4y5aczfpzzdx7ueiw2qjpcqdletq6k24mvm4v4nq",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/89b2861a87984ecf82fa5c3ce44b6679",
+          "value": "89b2861a87984ecf82fa5c3ce44b6679"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "2750381c08284909b3bb34226222b1b0"
+        },
+        "grant-mechanism": "SERVICE_MANAGER_TO_USER",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/6940f2c4f17c49469d465bb49505ceb3",
+          "type": "User",
+          "value": "6940f2c4f17c49469d465bb49505ceb3"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "id": "8125dd5f95284aeaa057b4ab21a2c6f9",
+        "idcs-created-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-modified-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/UnAuthenticated",
+          "type": "App",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-12-17T19:14:28.879Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/8125dd5f95284aeaa057b4ab21a2c6f9",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjiaslpdswwn5f77nccytq5a4vn4svkpnngw3eaqgm2kj5nq",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/89b2861a87984ecf82fa5c3ce44b6679",
+          "value": "89b2861a87984ecf82fa5c3ce44b6679"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "7061cfcdf4eb480a9ebd10cd6f45c803"
+        },
+        "grant-mechanism": "SERVICE_MANAGER_TO_USER",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/6940f2c4f17c49469d465bb49505ceb3",
+          "type": "User",
+          "value": "6940f2c4f17c49469d465bb49505ceb3"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "id": "d7637084df72401dbf34193c57822175",
+        "idcs-created-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-modified-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/UnAuthenticated",
+          "type": "App",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-12-17T19:14:28.987Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/d7637084df72401dbf34193c57822175",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjia43ehgpxarmnsgyi2pxshjtc2l6u5wzwe2pgbcxwezlqa",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/89b2861a87984ecf82fa5c3ce44b6679",
+          "value": "89b2861a87984ecf82fa5c3ce44b6679"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "3c366813ce394b1aab95d9217d002850"
+        },
+        "grant-mechanism": "SERVICE_MANAGER_TO_USER",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/6940f2c4f17c49469d465bb49505ceb3",
+          "type": "User",
+          "value": "6940f2c4f17c49469d465bb49505ceb3"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "id": "1e2aec78084a48968ee1748451fc09a3",
+        "idcs-created-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-modified-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/UnAuthenticated",
+          "type": "App",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-12-17T19:14:29.101Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/1e2aec78084a48968ee1748451fc09a3",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjia224na72rhz4lwbzubyjwev65gqeftznjppusnlweo4nq",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/89b2861a87984ecf82fa5c3ce44b6679",
+          "value": "89b2861a87984ecf82fa5c3ce44b6679"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "423c48d8259b4832b325271c7d20ddac"
+        },
+        "grant-mechanism": "SERVICE_MANAGER_TO_USER",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/6940f2c4f17c49469d465bb49505ceb3",
+          "type": "User",
+          "value": "6940f2c4f17c49469d465bb49505ceb3"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "id": "e00f9b77c2c14be0a61f93c1753fc067",
+        "idcs-created-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-modified-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/UnAuthenticated",
+          "type": "App",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-12-17T19:14:29.210Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/e00f9b77c2c14be0a61f93c1753fc067",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjiacuos2slzucp6jdornf4xidocmmezaqeg42d3tqmpmmdq",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/89b2861a87984ecf82fa5c3ce44b6679",
+          "value": "89b2861a87984ecf82fa5c3ce44b6679"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "bed4248e25554065a5ed6d9da8c41bda"
+        },
+        "grant-mechanism": "SERVICE_MANAGER_TO_USER",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/6940f2c4f17c49469d465bb49505ceb3",
+          "type": "User",
+          "value": "6940f2c4f17c49469d465bb49505ceb3"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "id": "556a467b042c46f89c1c61fe702c78af",
+        "idcs-created-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-modified-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/UnAuthenticated",
+          "type": "App",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-12-17T19:14:29.320Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/556a467b042c46f89c1c61fe702c78af",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjiamyrty36bhdhqy6eirl5ft2yk65kozo3hnqrex44cnbaa",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/89b2861a87984ecf82fa5c3ce44b6679",
+          "value": "89b2861a87984ecf82fa5c3ce44b6679"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "1acdb83ca45b4091ae405c5657f2d879"
+        },
+        "grant-mechanism": "SERVICE_MANAGER_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/2765cc4faddf467dbd0047dc1a9eec99",
+          "type": "App",
+          "value": "2765cc4faddf467dbd0047dc1a9eec99"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "id": "b079e9470b834c09b8eba0fb02648430",
+        "idcs-created-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-modified-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/UnAuthenticated",
+          "type": "App",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-12-17T19:14:29.618Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/b079e9470b834c09b8eba0fb02648430",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjiacym5l5ai6w5ujwnlywofqj6b6imr52o37uzpdmzblv2q",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/1bd95b44afff496a98df8e0aa08c122b",
+          "value": "1bd95b44afff496a98df8e0aa08c122b"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": null,
+        "grant-mechanism": "ADMINISTRATOR_TO_USER",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "id": "8c154c892930421ba725ebbb969fbb53",
+        "idcs-created-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "idcs-last-modified-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/UnAuthenticated",
+          "type": "User",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-10-22T17:15:26.315Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/8c154c892930421ba725ebbb969fbb53",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjiapcvo55cg272f75vc54633scnlqhltmrjrmcwr62lbkaq",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "ad35f9280fdb4e88aaa7f2aeebd70ded"
+        },
+        "grant-mechanism": "ADMINISTRATOR_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/c77f220800bc4a7da5eeb4bde0d2aaa0",
+          "type": "App",
+          "value": "c77f220800bc4a7da5eeb4bde0d2aaa0"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "id": "686904b6c8dd44689004fa1c89104e8b",
+        "idcs-created-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "idcs-last-modified-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/UnAuthenticated",
+          "type": "User",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-10-22T00:24:26.431Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/686904b6c8dd44689004fa1c89104e8b",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjia3k4iwjlularbxk3ividmht7arbejts7b5glba6ic4yba",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "eb5d08c682f546ed9165e126923497c5"
+        },
+        "grant-mechanism": "SERVICE_MANAGER_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/89b2861a87984ecf82fa5c3ce44b6679",
+          "type": "App",
+          "value": "89b2861a87984ecf82fa5c3ce44b6679"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "id": "ae9beec448bb466290f60dd331f766e2",
+        "idcs-created-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-modified-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/UnAuthenticated",
+          "type": "App",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-12-17T19:14:29.770Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/ae9beec448bb466290f60dd331f766e2",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjiagmrnt5jfhwirvwadw7kzhqdszy6cpkiy5akklxudeu7a",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "ca279c2888644877a9548e3e9c423aa2"
+        },
+        "grant-mechanism": "SERVICE_MANAGER_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/89b2861a87984ecf82fa5c3ce44b6679",
+          "type": "App",
+          "value": "89b2861a87984ecf82fa5c3ce44b6679"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "id": "9a85a8967f4746f4984c3d45d0f7caf2",
+        "idcs-created-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-modified-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/UnAuthenticated",
+          "type": "App",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-12-17T19:14:29.919Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/9a85a8967f4746f4984c3d45d0f7caf2",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjiagfroql7btmtopvgfgch65vgpigx2trjbrnuux43aoqaq",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "1867c9da6299497382337f5ea4089d54"
+        },
+        "grant-mechanism": "SERVICE_MANAGER_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/89b2861a87984ecf82fa5c3ce44b6679",
+          "type": "App",
+          "value": "89b2861a87984ecf82fa5c3ce44b6679"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "id": "e6d3010d118840b89b26165d26295284",
+        "idcs-created-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-modified-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/UnAuthenticated",
+          "type": "App",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-12-17T19:14:30.066Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/e6d3010d118840b89b26165d26295284",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjiafb6ge4og2k2yynrvum4za3zbysipfowrr2kg5fzpt7da",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "92543ea4b46e441db1fc58938c3eb8fc"
+        },
+        "grant-mechanism": "SERVICE_MANAGER_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/89b2861a87984ecf82fa5c3ce44b6679",
+          "type": "App",
+          "value": "89b2861a87984ecf82fa5c3ce44b6679"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "id": "00e75a9a6796412da3e583142334ef5c",
+        "idcs-created-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-modified-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/UnAuthenticated",
+          "type": "App",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-12-17T19:14:30.218Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/00e75a9a6796412da3e583142334ef5c",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjiazrou5hsh2zixcfnn5jpdximi6ewibjfyvj4tllvxw7xq",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "6070c9541e404bb0ae7f53ba7c420714"
+        },
+        "grant-mechanism": "SERVICE_MANAGER_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/89b2861a87984ecf82fa5c3ce44b6679",
+          "type": "App",
+          "value": "89b2861a87984ecf82fa5c3ce44b6679"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "id": "5586ecbd18814a0a93ce5725976fdee2",
+        "idcs-created-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-modified-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/UnAuthenticated",
+          "type": "App",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-12-17T19:14:30.380Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/5586ecbd18814a0a93ce5725976fdee2",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjiau2z4s6lvggehnc2bbf7zisuylh4srgwqpynzpmrjcmyq",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "dd87fe02a607486eabe7630f1cefe8b5"
+        },
+        "grant-mechanism": "SERVICE_MANAGER_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/89b2861a87984ecf82fa5c3ce44b6679",
+          "type": "App",
+          "value": "89b2861a87984ecf82fa5c3ce44b6679"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "id": "80287af1b7244306bcc42930011b5657",
+        "idcs-created-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-modified-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/UnAuthenticated",
+          "type": "App",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-12-17T19:14:30.538Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/80287af1b7244306bcc42930011b5657",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjiairhopd4zgy7w4hhabbvgtrqqctlesm77qb2mrza4yy5a",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "9fc5433a09d344f18b483d3dea09bf67"
+        },
+        "grant-mechanism": "SERVICE_MANAGER_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/89b2861a87984ecf82fa5c3ce44b6679",
+          "type": "App",
+          "value": "89b2861a87984ecf82fa5c3ce44b6679"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "id": "79d3043a3135456a9035fc94f8643378",
+        "idcs-created-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-modified-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/UnAuthenticated",
+          "type": "App",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-12-17T19:14:30.699Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/79d3043a3135456a9035fc94f8643378",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjianvmlz2dqh44nfxd7vnlcithhx373xswxsggs5e76j77q",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "9a241aaf84304260990a9ccde745a04a"
+        },
+        "grant-mechanism": "SERVICE_MANAGER_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/89b2861a87984ecf82fa5c3ce44b6679",
+          "type": "App",
+          "value": "89b2861a87984ecf82fa5c3ce44b6679"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "id": "0f52f0e8933e44a4853ee87bbb0022d3",
+        "idcs-created-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-modified-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/UnAuthenticated",
+          "type": "App",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-12-17T19:14:30.853Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/0f52f0e8933e44a4853ee87bbb0022d3",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjiawdlbv5emg5ziqt34chlyze2eeqgvfpzxkq6zd5gpkoxq",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "079c788072c7498ba3390e3f1c712fbe"
+        },
+        "grant-mechanism": "SERVICE_MANAGER_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/89b2861a87984ecf82fa5c3ce44b6679",
+          "type": "App",
+          "value": "89b2861a87984ecf82fa5c3ce44b6679"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "id": "e81f6ff9b5044df09d0417a0b4e272f4",
+        "idcs-created-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-modified-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/UnAuthenticated",
+          "type": "App",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-12-17T19:14:31Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/e81f6ff9b5044df09d0417a0b4e272f4",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjiakd2pj7635rsd3aco7hawrtc2g5idqy4djfditj25uzxq",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "c730d745d88044489175667c4e5990b0"
+        },
+        "grant-mechanism": "SERVICE_MANAGER_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/89b2861a87984ecf82fa5c3ce44b6679",
+          "type": "App",
+          "value": "89b2861a87984ecf82fa5c3ce44b6679"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "id": "2f347d6f95174e4a9e617b3ce40aac74",
+        "idcs-created-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-modified-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/UnAuthenticated",
+          "type": "App",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-12-17T19:14:31.161Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/2f347d6f95174e4a9e617b3ce40aac74",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjia6oggwhgz2ot2o7cpntu6cu7wm4eodtrxtjzcohhiecwa",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "92543ea4b46e441db1fc58938c3eb8fc"
+        },
+        "grant-mechanism": "SERVICE_MANAGER_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/60da32b7d91741ba98b7be0bf4941e95",
+          "type": "App",
+          "value": "60da32b7d91741ba98b7be0bf4941e95"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "id": "ad94ff737bf4445091c9ff9bfa7b728d",
+        "idcs-created-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-modified-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/UnAuthenticated",
+          "type": "App",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-12-17T19:15:00.650Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/ad94ff737bf4445091c9ff9bfa7b728d",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjia7gru4tlpno7wdqj4hov43eegebzjdlqvurw6acm7hoaa",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "92543ea4b46e441db1fc58938c3eb8fc"
+        },
+        "grant-mechanism": "SERVICE_MANAGER_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/31ba1bd25e14486dacee5f98742990f0",
+          "type": "App",
+          "value": "31ba1bd25e14486dacee5f98742990f0"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "id": "3c7b0390f37b491abf73e6c7ba38b35e",
+        "idcs-created-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-modified-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/UnAuthenticated",
+          "type": "App",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-08-27T19:55:39.459Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/3c7b0390f37b491abf73e6c7ba38b35e",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjia3hu556kzywgpk4k3mrmpafb55fopmotyxnhangxtvzea",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "92543ea4b46e441db1fc58938c3eb8fc"
+        },
+        "grant-mechanism": "SERVICE_MANAGER_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/60360b6c0be846cf86051c3c72770d67",
+          "type": "App",
+          "value": "60360b6c0be846cf86051c3c72770d67"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "id": "b13271d5fd8741eb86b56a7cf1c298b4",
+        "idcs-created-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-modified-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/UnAuthenticated",
+          "type": "App",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-08-27T19:55:40.076Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/b13271d5fd8741eb86b56a7cf1c298b4",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjiagulednjad735q4yy2lvtrj6hjnnj7d26kkzfuyynki3a",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "92543ea4b46e441db1fc58938c3eb8fc"
+        },
+        "grant-mechanism": "SERVICE_MANAGER_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/5d6d060f33374e5a954f8b2239ba6fb1",
+          "type": "App",
+          "value": "5d6d060f33374e5a954f8b2239ba6fb1"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "id": "5d6799cebc134681bedacc3c2f73f724",
+        "idcs-created-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-modified-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/UnAuthenticated",
+          "type": "App",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-08-27T19:55:40.470Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/5d6799cebc134681bedacc3c2f73f724",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjiam3562izwhfrvmfad6gxubra2fjnlt67i6ovoowk3tccq",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/0e5b1a11429b4692a789d1f07748e147",
+          "value": "0e5b1a11429b4692a789d1f07748e147"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": null,
+        "grant-mechanism": "ADMINISTRATOR_TO_GROUP",
+        "granted-attribute-values-json": "{\"attributes\":{\"idpGroups\":[\"4f86f7dc66c34c1cba7d7e94a2875d19/KTGroup\"]}}",
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Groups/4f86f7dc66c34c1cba7d7e94a2875d19",
+          "type": "Group",
+          "value": "4f86f7dc66c34c1cba7d7e94a2875d19"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/0e5b1a11429b4692a789d1f07748e147",
+          "type": "App",
+          "value": "0e5b1a11429b4692a789d1f07748e147"
+        },
+        "id": "6120be0c3b6a4ccda2f214e6982f3ba5",
+        "idcs-created-by": {
+          "display": "OCI-V2-App-ociateam",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/0e5b1a11429b4692a789d1f07748e147",
+          "type": "App",
+          "value": "0e5b1a11429b4692a789d1f07748e147"
+        },
+        "idcs-last-modified-by": {
+          "display": "idcssaml",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/UnAuthenticated",
+          "type": "App",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": false,
+        "meta": {
+          "created": "2019-12-13T22:08:15.086Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/6120be0c3b6a4ccda2f214e6982f3ba5",
+          "resource-type": "Grant",
+          "version": "9c0d88dc53184619a20bafb29205aeeb"
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjiabrogtprjtow3ndhq2dw73rht6odievgi7bgq2ydvotzq",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "ca279c2888644877a9548e3e9c423aa2"
+        },
+        "grant-mechanism": "SERVICE_MANAGER_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/7bfde547088b48369e2a4ebbc9ab43e7",
+          "type": "App",
+          "value": "7bfde547088b48369e2a4ebbc9ab43e7"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "id": "79b7164088c148698047c30ceefc2667",
+        "idcs-created-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-modified-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2022-08-19T04:45:08.014Z",
+          "last-modified": "2022-08-19T04:45:08.014Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/79b7164088c148698047c30ceefc2667",
+          "resource-type": "Grant",
+          "version": "07c126773b3e4c5fa2a669c1e670adc8"
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaup5v44qa3h7pld3lor3sgiuvujeipvvvwvt6cwpqhlzxczgsogaa",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "ca279c2888644877a9548e3e9c423aa2"
+        },
+        "grant-mechanism": "SERVICE_MANAGER_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/46738c487c5540eea6a4c10ea11bccbb",
+          "type": "App",
+          "value": "46738c487c5540eea6a4c10ea11bccbb"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "id": "18d1981714f04d77867f37649f49259d",
+        "idcs-created-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-modified-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2023-09-29T06:50:10.709Z",
+          "last-modified": "2023-09-29T06:50:10.709Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/18d1981714f04d77867f37649f49259d",
+          "resource-type": "Grant",
+          "version": "978b4a2d520f4e6b8c134313658b5006"
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaup5v44qass72ylw47b7moyunrgpfw4gkkgzlfybb7vfs42xywwqa",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "ad35f9280fdb4e88aaa7f2aeebd70ded"
+        },
+        "grant-mechanism": "ADMINISTRATOR_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/69f902357fce4b6ab214eae938c5e97d",
+          "type": "App",
+          "value": "69f902357fce4b6ab214eae938c5e97d"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "id": "edc8b67ed5d3472ca6f4ab60332fbb3a",
+        "idcs-created-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "idcs-last-modified-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/UnAuthenticated",
+          "type": "User",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-12-13T20:49:11.158Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/edc8b67ed5d3472ca6f4ab60332fbb3a",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjia7fkt5q2qfvwbik4u6zzyfqw4hfi36lllj6buh2k75otq",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/0e5b1a11429b4692a789d1f07748e147",
+          "value": "0e5b1a11429b4692a789d1f07748e147"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": null,
+        "grant-mechanism": "GROUP_MEMBERSHIP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Groups/9504770f2e5f43c6a81b037ba7e55e0b",
+          "type": "Group",
+          "value": "9504770f2e5f43c6a81b037ba7e55e0b"
+        },
+        "id": "333d76dded494807b6a4d6a5db891289",
+        "idcs-created-by": {
+          "display": "OCI-V2-App-ociateam",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/0e5b1a11429b4692a789d1f07748e147",
+          "type": "App",
+          "value": "0e5b1a11429b4692a789d1f07748e147"
+        },
+        "idcs-last-modified-by": {
+          "display": "OCI-V2-App-ociateam",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/UnAuthenticated",
+          "type": "App",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-12-13T22:17:34.232Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/333d76dded494807b6a4d6a5db891289",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjiarquz6wkw4exkno3iuy5vi66uj3seplooaqoc6n6dfluq",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/0e5b1a11429b4692a789d1f07748e147",
+          "value": "0e5b1a11429b4692a789d1f07748e147"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": null,
+        "grant-mechanism": "GROUP_MEMBERSHIP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/94d573a7b3ff48609f96d7009cf78ebf",
+          "type": "User",
+          "value": "94d573a7b3ff48609f96d7009cf78ebf"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Groups/4f86f7dc66c34c1cba7d7e94a2875d19",
+          "type": "Group",
+          "value": "4f86f7dc66c34c1cba7d7e94a2875d19"
+        },
+        "id": "3e1628b91c9245238984c94525385ee7",
+        "idcs-created-by": {
+          "display": "OCI-V2-App-ociateam",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/0e5b1a11429b4692a789d1f07748e147",
+          "type": "App",
+          "value": "0e5b1a11429b4692a789d1f07748e147"
+        },
+        "idcs-last-modified-by": {
+          "display": "OCI-V2-App-ociateam",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/UnAuthenticated",
+          "type": "App",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-12-13T22:08:24.083Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/3e1628b91c9245238984c94525385ee7",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjiavyee4e3rqrhjwkwptnkt677vleqpeacofs5nxvkgcm2q",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/0e5b1a11429b4692a789d1f07748e147",
+          "value": "0e5b1a11429b4692a789d1f07748e147"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": null,
+        "grant-mechanism": "GROUP_MEMBERSHIP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/6940f2c4f17c49469d465bb49505ceb3",
+          "type": "User",
+          "value": "6940f2c4f17c49469d465bb49505ceb3"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Groups/9504770f2e5f43c6a81b037ba7e55e0b",
+          "type": "Group",
+          "value": "9504770f2e5f43c6a81b037ba7e55e0b"
+        },
+        "id": "c454f3b1568c4399a49edcf9a4668323",
+        "idcs-created-by": {
+          "display": "OCI-V2-App-ociateam",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/0e5b1a11429b4692a789d1f07748e147",
+          "type": "App",
+          "value": "0e5b1a11429b4692a789d1f07748e147"
+        },
+        "idcs-last-modified-by": {
+          "display": "OCI-V2-App-ociateam",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/UnAuthenticated",
+          "type": "App",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-12-13T22:17:34.537Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/c454f3b1568c4399a49edcf9a4668323",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjiazibxzdsiexfdy6bpzrm2tbt7t43zgywbt37fks6mzifa",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "6070c9541e404bb0ae7f53ba7c420714"
+        },
+        "grant-mechanism": "SERVICE_MANAGER_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/LoginClient_APPID",
+          "type": "App",
+          "value": "LoginClient_APPID"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "id": "09525b5a438b4d689459ec6a1f8bfcd0",
+        "idcs-created-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-modified-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2022-08-18T00:18:58.588Z",
+          "last-modified": "2022-08-18T00:18:58.588Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/09525b5a438b4d689459ec6a1f8bfcd0",
+          "resource-type": "Grant",
+          "version": "e800f78a05ff48e7a5c77b20e654c566"
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaup5v44qay6sjajldk2lnka5bd7mmaq2c7emi5yxrsehrbmufwi5a",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "6070c9541e404bb0ae7f53ba7c420714"
+        },
+        "grant-mechanism": "SERVICE_MANAGER_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/OciConsole_APPID",
+          "type": "App",
+          "value": "OciConsole_APPID"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "id": "945a084d8cd841099dfc45946e184ed8",
+        "idcs-created-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-modified-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2022-08-18T00:18:59.740Z",
+          "last-modified": "2022-08-18T00:18:59.740Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/945a084d8cd841099dfc45946e184ed8",
+          "resource-type": "Grant",
+          "version": "2e2d05cc10d74903991aea68f80da4ac"
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaup5v44qaw26qyfb4jjdaumkfxiihrhyonu4lzjlzgcsugnakx6ea",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "6070c9541e404bb0ae7f53ba7c420714"
+        },
+        "grant-mechanism": "SERVICE_MANAGER_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/DataSafe_APPID",
+          "type": "App",
+          "value": "DataSafe_APPID"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "id": "fecd8fb73f81406ca8165443081378ba",
+        "idcs-created-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-modified-by": {
+          "display": "idcssm",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/10a9d3522d3b47eaa232cd2ccb85e45e",
+          "type": "App",
+          "value": "10a9d3522d3b47eaa232cd2ccb85e45e"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2022-08-18T00:18:59.852Z",
+          "last-modified": "2022-08-18T00:18:59.852Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/fecd8fb73f81406ca8165443081378ba",
+          "resource-type": "Grant",
+          "version": "78fbd9e7a35147eeb758aff2f2217971"
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaup5v44qayhhfpt7w6sliz7a56rxuubxt53t4tf52cyae7f7yrwlq",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/19861d8742ee4500a201c876bc787c7e",
+          "value": "19861d8742ee4500a201c876bc787c7e"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": null,
+        "grant-mechanism": "ADMINISTRATOR_TO_GROUP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Groups/9fc7b7385d6c49ffaf55d91a530f4d14",
+          "type": "Group",
+          "value": "9fc7b7385d6c49ffaf55d91a530f4d14"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/OCI User",
+          "type": "User",
+          "value": "OCI User"
+        },
+        "id": "c3ee4ea84b7d4f6fb92ae134b4aa8289",
+        "idcs-created-by": {
+          "display": "Vinay Kalra",
+          "ocid": "ocid1.user.oc1..aaaaaaaahmbym7gzyztumej6r7g6iat66fo6agbzllkji36pkfgszdefgpwa",
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/OCI User",
+          "type": "User",
+          "value": "OCI User"
+        },
+        "idcs-last-modified-by": {
+          "display": "Vinay Kalra",
+          "ocid": "ocid1.user.oc1..aaaaaaaahmbym7gzyztumej6r7g6iat66fo6agbzllkji36pkfgszdefgpwa",
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/OCI User",
+          "type": "User",
+          "value": "OCI User"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": false,
+        "meta": {
+          "created": "2023-11-20T23:51:46.747Z",
+          "last-modified": "2023-11-20T23:51:46.747Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/c3ee4ea84b7d4f6fb92ae134b4aa8289",
+          "resource-type": "Grant",
+          "version": "73a568c0b9df487fbc2bc902475a54c6"
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaup5v44qajfpzz2jqrm7rsfcjweg4rvsvdh3et34b74yyys3b7kaa",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "1867c9da6299497382337f5ea4089d54"
+        },
+        "grant-mechanism": "ADMINISTRATOR_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/2c0486a656904f59bf74d4e2270cd479",
+          "type": "App",
+          "value": "2c0486a656904f59bf74d4e2270cd479"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "id": "cc915fe35d8d4bf5a465d0c0fb197150",
+        "idcs-created-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "idcs-last-modified-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/UnAuthenticated",
+          "type": "User",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-10-02T19:54:50.953Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/cc915fe35d8d4bf5a465d0c0fb197150",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjiadiev5adgyseo6q7tj63o2m2bjg4x55ep4vafh2jth2la",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "ca279c2888644877a9548e3e9c423aa2"
+        },
+        "grant-mechanism": "ADMINISTRATOR_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/0377ca7f8941485988dd6c6e56276f9c",
+          "type": "App",
+          "value": "0377ca7f8941485988dd6c6e56276f9c"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "id": "ba9c73b98f654f3ba4b0c92f37f18f3d",
+        "idcs-created-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "idcs-last-modified-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2022-01-25T04:57:26.474Z",
+          "last-modified": "2022-01-25T04:57:26.474Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/ba9c73b98f654f3ba4b0c92f37f18f3d",
+          "resource-type": "Grant",
+          "version": "f1cca71a251749d58caf5ba84ea7018c"
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaup5v44qanm77vsneqk2353b5uifmc447tt6q4xddy3sogwi2rrra",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "83f188639bdf44e98e143fa25629e748"
+        },
+        "grant-mechanism": "ADMINISTRATOR_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/0377ca7f8941485988dd6c6e56276f9c",
+          "type": "App",
+          "value": "0377ca7f8941485988dd6c6e56276f9c"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "id": "a9901cb4f61049538606801dd7feb368",
+        "idcs-created-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "idcs-last-modified-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2022-01-25T04:57:26.584Z",
+          "last-modified": "2022-01-25T04:57:26.584Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/a9901cb4f61049538606801dd7feb368",
+          "resource-type": "Grant",
+          "version": "7d606592837f4c479b3070b93c77ac8c"
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaaqtp5baao7bepzyrgp55txgnebokogu4vkga4zycmg4fckifjsja",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "6070c9541e404bb0ae7f53ba7c420714"
+        },
+        "grant-mechanism": "ADMINISTRATOR_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/0377ca7f8941485988dd6c6e56276f9c",
+          "type": "App",
+          "value": "0377ca7f8941485988dd6c6e56276f9c"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "id": "a2d6d6f3020a4c08bf6853fbb32f81e1",
+        "idcs-created-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "idcs-last-modified-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2022-01-25T04:57:26.669Z",
+          "last-modified": "2022-01-25T04:57:26.669Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/a2d6d6f3020a4c08bf6853fbb32f81e1",
+          "resource-type": "Grant",
+          "version": "1e6d2c354f3f49aaa4958cc1a99f2a29"
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaaqtp5baa2aitypktkxhmpjqkl2ep6govsa57rtjrms4yspec325a",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "ad35f9280fdb4e88aaa7f2aeebd70ded"
+        },
+        "grant-mechanism": "ADMINISTRATOR_TO_GROUP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Groups/9fc7b7385d6c49ffaf55d91a530f4d14",
+          "type": "Group",
+          "value": "9fc7b7385d6c49ffaf55d91a530f4d14"
+        },
+        "grantor": {
+          "display": null,
+          "ref": null,
+          "type": null,
+          "value": "UnAuthenticated"
+        },
+        "id": "d01592fe1c534ecc96e93dfc99f36ad7",
+        "idcs-created-by": {
+          "display": null,
+          "ocid": null,
+          "ref": null,
+          "type": null,
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-modified-by": {
+          "display": null,
+          "ocid": null,
+          "ref": null,
+          "type": null,
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-10-12T10:49:17.222Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/d01592fe1c534ecc96e93dfc99f36ad7",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjiaurmqorrchwmzuprhpo3q6fmyigzgzjrggrc42hv2v7sq",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "ad35f9280fdb4e88aaa7f2aeebd70ded"
+        },
+        "grant-mechanism": "ADMINISTRATOR_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/839be3b4228246dc996a8d9716f7696d",
+          "type": "App",
+          "value": "839be3b4228246dc996a8d9716f7696d"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "id": "3f3a23cf4c494529ac996dee807eceac",
+        "idcs-created-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "idcs-last-modified-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/UnAuthenticated",
+          "type": "User",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-12-13T20:40:37.352Z",
+          "last-modified": "2022-02-26T04:38:22Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/3f3a23cf4c494529ac996dee807eceac",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjiacdyanj6vbfbpxeukikowa646rncgk4vpqlkhwefvfhmq",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/0e5b1a11429b4692a789d1f07748e147",
+          "value": "0e5b1a11429b4692a789d1f07748e147"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": null,
+        "grant-mechanism": "ADMINISTRATOR_TO_GROUP",
+        "granted-attribute-values-json": "{\"attributes\":{\"idpGroups\":[\"9504770f2e5f43c6a81b037ba7e55e0b/OCI_Administrators\"]}}",
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Groups/9504770f2e5f43c6a81b037ba7e55e0b",
+          "type": "Group",
+          "value": "9504770f2e5f43c6a81b037ba7e55e0b"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/0e5b1a11429b4692a789d1f07748e147",
+          "type": "App",
+          "value": "0e5b1a11429b4692a789d1f07748e147"
+        },
+        "id": "fc9c85f9113b4187b8522d440bf9bb84",
+        "idcs-created-by": {
+          "display": "OCI-V2-App-ociateam",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/0e5b1a11429b4692a789d1f07748e147",
+          "type": "App",
+          "value": "0e5b1a11429b4692a789d1f07748e147"
+        },
+        "idcs-last-modified-by": {
+          "display": "OCI-V2-App-ociateam",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/UnAuthenticated",
+          "type": "App",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2019-12-13T22:17:28.417Z",
+          "last-modified": "2022-02-26T04:38:23Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/fc9c85f9113b4187b8522d440bf9bb84",
+          "resource-type": "Grant",
+          "version": null
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjiazdyafp3q4afj6lmgf6akpep6ssy6rabd7nk4j3dlbbaq",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "dd87fe02a607486eabe7630f1cefe8b5"
+        },
+        "grant-mechanism": "ADMINISTRATOR_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/feac34f8baa04398becb7f5e12af033b",
+          "type": "App",
+          "value": "feac34f8baa04398becb7f5e12af033b"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "id": "1c266510360a4255b0ea181e72a1872a",
+        "idcs-created-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "idcs-last-modified-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/UnAuthenticated",
+          "type": "User",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2021-09-14T18:55:02.518Z",
+          "last-modified": "2022-02-26T04:38:23Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/1c266510360a4255b0ea181e72a1872a",
+          "resource-type": "Grant",
+          "version": "9baa20fdcca44b3c96a55eaf5961fe74"
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjiadqvq3kgxv4crglthh6tdi7aw75qxnzzvcucqcnb3urwq",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "6070c9541e404bb0ae7f53ba7c420714"
+        },
+        "grant-mechanism": "ADMINISTRATOR_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/feac34f8baa04398becb7f5e12af033b",
+          "type": "App",
+          "value": "feac34f8baa04398becb7f5e12af033b"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "id": "8965575cfa87499fb8a73c0d187e209c",
+        "idcs-created-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "idcs-last-modified-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/UnAuthenticated",
+          "type": "User",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2021-09-14T18:55:02.689Z",
+          "last-modified": "2022-02-26T04:38:23Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/8965575cfa87499fb8a73c0d187e209c",
+          "resource-type": "Grant",
+          "version": "f2dc2d08d7f647eabdb3833aa4f782e1"
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjiarqesr5l6mf4n2dhjatk5kle46uve77mus67sv7v7rnia",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "b9ebf8283178436d81ff62f75065e10c"
+        },
+        "grant-mechanism": "ADMINISTRATOR_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/feac34f8baa04398becb7f5e12af033b",
+          "type": "App",
+          "value": "feac34f8baa04398becb7f5e12af033b"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "id": "543a3dab4d6c440891840a4634752536",
+        "idcs-created-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "idcs-last-modified-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/UnAuthenticated",
+          "type": "User",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2021-09-14T18:55:02.829Z",
+          "last-modified": "2022-02-26T04:38:23Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/543a3dab4d6c440891840a4634752536",
+          "resource-type": "Grant",
+          "version": "eba1e831523b4b049e1877dca6f2544f"
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjiayu7phflnyappmul257a4vuqvxjvmpescjn7k72vd3bga",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "9a241aaf84304260990a9ccde745a04a"
+        },
+        "grant-mechanism": "ADMINISTRATOR_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/feac34f8baa04398becb7f5e12af033b",
+          "type": "App",
+          "value": "feac34f8baa04398becb7f5e12af033b"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "id": "05989189882c4d1c8d4b93a40f86ba18",
+        "idcs-created-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "idcs-last-modified-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/UnAuthenticated",
+          "type": "User",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2021-09-14T18:55:02.949Z",
+          "last-modified": "2022-02-26T04:38:23Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/05989189882c4d1c8d4b93a40f86ba18",
+          "resource-type": "Grant",
+          "version": "e2d464cb1ca14b56a2d720fab359b1d8"
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjiayyfffbpbmvylztxggaeszmc4b6ly652zag2kz6do2odq",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "9fc5433a09d344f18b483d3dea09bf67"
+        },
+        "grant-mechanism": "ADMINISTRATOR_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/feac34f8baa04398becb7f5e12af033b",
+          "type": "App",
+          "value": "feac34f8baa04398becb7f5e12af033b"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "id": "8b6b5eb834b144eb95101e8082946cbb",
+        "idcs-created-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "idcs-last-modified-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/UnAuthenticated",
+          "type": "User",
+          "value": "UnAuthenticated"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2021-09-14T18:55:03.077Z",
+          "last-modified": "2022-02-26T04:38:23Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/8b6b5eb834b144eb95101e8082946cbb",
+          "resource-type": "Grant",
+          "version": "cd754b13af8a461dbcf60999855390dd"
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaxwcahjiarmbxshnvs2bykdwgcjgia6prnxb3ehygrgru5elkvpsa",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      },
+      {
+        "app": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/IDCSAppId",
+          "value": "IDCSAppId"
+        },
+        "app-entitlement-collection": null,
+        "compartment-ocid": "ocid1.compartment.oc1..aaaaaaaawlycnxxmhf62itwpw7ztjfhsy2xg52gshhmz5un5k7qqz25fucya",
+        "composite-key": null,
+        "delete-in-progress": null,
+        "domain-ocid": "ocid1.domain.oc1..aaaaaaaasbehgnx5fz2s6nd3koz7cdsbmwkh3yfwvnelczt5fa2rwblqvava",
+        "entitlement": {
+          "attribute-name": "appRoles",
+          "attribute-value": "ad35f9280fdb4e88aaa7f2aeebd70ded"
+        },
+        "grant-mechanism": "ADMINISTRATOR_TO_APP",
+        "granted-attribute-values-json": null,
+        "grantee": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Apps/0377ca7f8941485988dd6c6e56276f9c",
+          "type": "App",
+          "value": "0377ca7f8941485988dd6c6e56276f9c"
+        },
+        "grantor": {
+          "display": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "id": "4718c43886a446c08270358766348242",
+        "idcs-created-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "idcs-last-modified-by": {
+          "display": "Vinay Kalra",
+          "ocid": null,
+          "ref": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Users/7068b1bfd6914b4ea1201018360c6b69",
+          "type": "User",
+          "value": "7068b1bfd6914b4ea1201018360c6b69"
+        },
+        "idcs-last-upgraded-in-release": null,
+        "idcs-prevented-operations": null,
+        "is-fulfilled": true,
+        "meta": {
+          "created": "2022-01-25T05:34:52.831Z",
+          "last-modified": "2022-01-25T05:34:52.831Z",
+          "location": "https://idcs-f438452e22df46a39a0c6ac418370256.identity.oraclecloud.com:443/admin/v1/Grants/4718c43886a446c08270358766348242",
+          "resource-type": "Grant",
+          "version": "6cdee3ddfbf84944b3895d58581156c6"
+        },
+        "ocid": "ocid1.domaingrant.oc1.phx.amaaaaaaaqtp5baatuiowoquiegu75c3rypbwpf37y4reujgtg34izuglmqq",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:oracle:idcs:Grant"
+        ],
+        "tags": null,
+        "tenancy-ocid": "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq"
+      }
+    ],
+    "schemas": [
+      "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+    ],
+    "start-index": 1,
+    "total-results": 74
+  },
+  "opc-next-page": "NTE=",
+  "opc-total-items": "74"
+}
