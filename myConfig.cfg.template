@@ -20,10 +20,12 @@ iddomain =
 idname =
 idurl =
 idp_type = 
-idp_metadata_url =
+idp_method =
+idp_metadata =
 client_id = TBD
 client_secret = TBD
 bucket_namespace = 
 bucket_name = 
 par_request = TBD
+app_id =
 

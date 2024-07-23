@@ -1,24 +1,18 @@
+# coding: utf-8
+# Copyright (c) 2016, 2024, Oracle and/or its affiliates.  All rights reserved.
+# This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
 
-"""
-This should be one script with 2 steps:
-    from SP
-        select domain
-        provide IdP's URL
-        Note: SAML metadata is published at /fed/v1/metadata on both sides
-        Create Identity Provider using IdPs metadata
-        Create and activate App for SCIM provisioning - Create Confidential App and store the client ID and secret
-        provide or create bucket
-            Create file in Object Store with the above
-            Create a PAR for that
-        Output PAR URL
-    from IdP
-        select domain
-        select group
-        provide URL to PAR
-        Create App for SAML federation -  SAML APP
-        Create App for SCIM provisioning - Create Generic SCIM - Client Credential App
-The script should have a check / dry run step and then an execute step.
-"""
+##########################################################################
+# setupFed.py
+#
+# @author: Vinay Kalra
+#
+# Supports Python  3
+#
+# DISCLAIMER - This is not an official Oracle application.  
+#              It is not supported by Oracle Support.
+##########################################################################
+
 import oci
 import configparser
 import argparse
@@ -857,7 +851,9 @@ def get_inputs(provider):
 
     print("\nYou entered: \n")
     for config in myConfig[provider]:
-        print(config + ": " + myConfig[provider][config] + "\n")
+        # Hide config option that were not entered in by user
+        if config != 'client_id' and config != 'client_secret' and config != 'app_id' and config != 'par_request':
+            print(config + ": " + myConfig[provider][config])
 
     if (user_input(QCONT, None, None)) == 'Y':
         save_config_file(myConfig, CONFIG_FILE)
