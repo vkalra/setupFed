@@ -523,7 +523,7 @@ def create_generic_scim_app(endpoint):
     #print(response.content)
     #print(domainClient.get_app(app_id="07de5c07edfe42a785eb328fabef1d28").data)
     
-    # The seeded teamplate ID for Generic SCIM App - Cleint credentials
+    # The seeded teamplate ID for Generic SCIM App - Client credentials
     template_id = "df61971610a531f48a3187b90c97573c"
     
     try:
