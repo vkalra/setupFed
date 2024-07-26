@@ -290,7 +290,7 @@ def create_metadata_bucket(compartment, type):
                 raise SystemExit
         else:
             print("Error Creatinbg Bucket: " + err)
-            exit(0)
+            raise SystemExit
         
     #print(bucketResponse.data)
 
@@ -519,12 +519,14 @@ def create_confidential_app(endpoint):
 def create_generic_scim_app(endpoint):
     print("Creating SCIM Application for provisioing users to Serivr Provider...")
    
-    #response = sendRequest(endpoint + "/admin/v1/AppTemplates?filter=name+co+%22SCIM%22")
-    #print(response.content)
+    response = send_request(endpoint + "/admin/v1/AppTemplates?filter=displayName eq \"GenericScim - Client Credentials\"&attributes=id")
+    #print(response.json()['Resources'][0]['id'])
     #print(domainClient.get_app(app_id="07de5c07edfe42a785eb328fabef1d28").data)
     
     # The seeded teamplate ID for Generic SCIM App - Client credentials
-    template_id = "df61971610a531f48a3187b90c97573c"
+    #template_id = "df61971610a531f48a3187b90c97573c"
+    # TODO - Do a search for the key
+    template_id = response.json()['Resources'][0]['id']
     
     try:
         # Initialize service client with default config file
@@ -570,7 +572,7 @@ def create_generic_scim_app(endpoint):
                 print ("app_id is missing. Try deleting the SCIM app and run the script again.")
                 raise SystemExit 
         else:
-            print("Error updating Generic SCOM Application.")
+            print("Error Creating Generic SCOM Application.")
             print(err)
             raise SystemExit
        
@@ -621,7 +623,7 @@ def create_generic_scim_app(endpoint):
             print("Status Code 409 (doplicate) : Application already exists.  Continuing....")
             print(err)
         else:
-            print("Error updating Generic SCOM Applcation.")
+            print("Error updating Generic SCIM Applcation.")
             print(err)
             raise SystemExit
 
